@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Solitreo&display=swap');
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+font-family: 'Rubik', sans-serif;
+background-color: rgb(3, 28, 22);
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #263f3f;
+  padding: 10px;
+}
+
+.logo-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.logo-container h2{
+  font-size: 1.5rem;
+  color:white;
+  font-weight: 500;
+}
+.ab-logo{
+  width:50px;
+  height:50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.search-bar-container{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.search{
+
+  padding: 4px;
+  display: flex;
+  /* background-color: red; */
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 15px;
+  font-family: 'Rubik', sans-serif;
+}
+.search input{
+  margin-left:10px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color:white;
+  font-family: 'Rubik', sans-serif;
+}
+
+.search-btn{
+  background-color: transparent;
+  border:none;
+  margin-top: 4px;
+  margin-right: 5px;
+  color: white;
+}
+.dark-mode-container{
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:0.4rem;
+  padding: 3px;
+}
+.dark-mode{
+    width: 16px;
+      height: 16px;
+      background-color: rgb(158, 220, 237);
+      padding: 2px;
+      border-radius: 15px;
+}
+/* .light-mode{
+  width: 16px;
+  height: 16px;
+  background-color: rgb(158, 220, 237);
+  padding: 2px;
+  border-radius: 15px;
+} */
+.login-container{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.5rem;
+}
+.icons{
+  background-color: white;
+  margin: 1px;
+  border-radius: 50%;
+  padding: 1px;
+}
+.drop-down-container{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #2fdfdf;
+  border: 1px solid rgb(0, 0, 0);
+}
+.home-container{
+  display: flex;
+  justify-content: flex-start;
+  
+}
+.user-info-container{
+  width: 350px;
+  height: 450px;
+  background-color: #052424;
+  border-radius: 10px;
+  margin: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.image-name-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+ 
+    
+}
+.image-name-container img{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-top: -9rem;
+  margin-left: -0.4rem;
+}
+.friends-name-container{
+
+  color: wheat;
+  margin-left: -6rem;
+  margin-top: -1rem;
+  font-family: 'Solitreo', cursive;
+}
+.friends-name-container h3{
+  font-weight: 500;
+}
+.friends-name-container p{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  color:rgb(104, 125, 110);
+  font-weight: 500;
+  margin-top: -0.5rem;
+  font-size: 0.7rem;
+  text-transform: capitalize;
+}
+.add-person{
+
+  color: rgb(88, 191, 242);;
+
+  font-size: 1.2rem;
+
+}
+.background-stand{
+  width: 90px;
+    height: 90px;
+    content: none;
+    background-color: rgb(118, 143, 151);
+    border-radius: 50%;
+    margin-bottom: -0.5rem;
+    margin-right: -0.5rem;
+
+}
+.location-container{
+  margin:1rem ;
+
+}
+.profile-icon{
+  color: rgb(15, 161, 177);
+  font-size: 1.2rem;
+  margin:0.4rem;
+}
+.location-profile{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  text-transform: capitalize;
+  color: wheat;
+  font-size: 0.9rem;
+  font-family: 'Solitreo', cursive;
+}
+.impressions-container{
+  margin: 1rem;
+  color:wheat;
+  font-size: 0.9rem;
+  padding: 10px;
+
+}
+.watched{
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Solitreo', cursive;
+}
+.impressions{
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Solitreo', cursive;
+}
+.twitter{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-family: 'Solitreo', cursive;
+      margin: 1rem;
+      color: wheat;
+
+}
+
+.twitter h4{
+  font-size: 0.9rem;
+}
+.twitter p{
+  font-size: 0.7rem;
+}
+.tweet{
+  font-size: 1.4rem;
+  color: aqua;;
+  margin: 1rem;
+  border: 1px solid white;
+  border-radius: 50%;
+  font-size: 2rem;
+}
+.top-container{
+  background-color: #043535;
+  width:450px;
+  height:110px;
+  margin: 1rem;
+  border-radius: 15px;
+}
+.image-search-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+}
+.person-top{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.search-top{
+  width: 100%;
+  height: 40px;
+  margin-left: 1rem;
+  background-color: #052424;
+  border: 1px solid #052424 ;
+  border-radius: 20px;
+
+}
+.search-top input{
+}
+.horizontal-line{
+ 
+        width: 90%;
+        margin-left: 5%;
+    background-color: gray;
+      height: 1px;
+      border: 0;
+   
+}
+.attachment-container{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    
+  
+  }
+.attachment-top{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+  
+  width: 80%;
+  }
+  .attachment-container p{
+    font-size: 0.6rem;
+    color: white;
+
+  }
+  .toper{
+    
+    display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.1rem;
+      margin-top: 10px;
+    
+  }
+  .attach-icons{
+    color:white;
+  }
+  .post{
+   margin-right: 1rem;
+   margin-top: 0.5rem;
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: aqua;
+   border:1px solid aqua;
+   border-radius: 15px;
+   width: 50px;
+  font-family: 'Solitreo', cursive;
+  font-weight: 600;
+  
+}
+.post-container{
+    color: white;
+    border-radius: 5px;
+    background-color: #1a2f2f;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+  }
+  .poster-container{
+    width:450px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .image-add-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-family: 'Solitreo', cursive;
+    font-size: 0.8rem;
+    
+  }
+  .image-add-container h3{
+    margin-top: 0.8rem;
+    margin-left: 4px;
+  }
+  .image-add-container div{
+    display: flex;
+    gap:1px;
+  }
+  .image-add-container img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .picture-post-name-container{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      
+    }
+  .picture-post-name-container img{
+    width: 95%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 2%;
+
+  }
+  .picture-post-name-container p {
+      font-size: 0.7rem;
+      margin-left:1rem;
+      margin-top:5px;
+      margin-bottom:5px;
+      text-transform: capitalize;
+      font-family: 'Solitreo', cursive;
+      
+    }
+    .like-comment-container{
+      display: flex;
+      align-items: center;
+      gap:1rem;
+      margin: 1rem;
+    }
+    .likes{
+      display: flex;
+      gap: 0.6rem;
+    }
+    .comment{
+      display: flex;
+      gap: 0.6rem;
+    }
+    .likes p, .comment p{
+      font-size: 0.8rem;
+    }
+    .add-me:hover{
+      color: rgb(10, 51, 51);
+      background-color: #62fbfb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .ad-user-container{
+      width:300px;
+      height: 280px;
+      background-color: #1a2f2f;
+      margin: 2rem;
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      
+      
+    }
+    .ad-pic{
+      width:100%;
+      padding: 10px;
+      margin-top: -1rem;
+    }
+    .top-ad{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    .top-ad h3{
+      color:white;
+      font-weight: 400;
+      font-family: 'Solitreo', cursive;
+      
+    }
+    .top-ad p{
+      color:rgb(140, 139, 139);
+      font-size: 0.7rem;
+      font-family: 'Solitreo', cursive;
+      
+    }
+    .ad-pic img{
+      width:100%;
+      /* margin-left: 6%; */
+      border-radius: 6px;
+      
+    }
+    .low-email-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      text-transform: capitalize;
+      padding: 10px;
+      color: rgb(199, 199, 199);
+
+    }
+    .low-email-container h3{
+      font-weight: 400;
+    }
+    .low-email-container p{
+      font-weight: 400;
+      font-size: 0.6rem;
+      color: #99aeae;
+    }
+    .desc-ad{
+
+    }
+    .friends-ad-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+    .friend-containers{
+      width:300px;
+      background-color: #1a2f2f;
+      border-radius: 5px;
+
+    }
+    .friend-containers h1{
+      font-size: 1.3rem;
+      font-weight: 500;
+      color:white;
+      padding: 10px;
+
+
+    }
+    .individual-friend{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    .individual-friend img {
+      width:40px;
+      height: 40px;
+      border-radius: 50%;
+
+    }
+    .pic-names-container{
+      display: flex;
+      justify-content: flex-start;
+        align-items: center;
+    }
+    .pic-names-container h5{
+      color:white;
+      margin-left: 3px;
+      font-size: 0.7rem;
+      font-family: 'Solitreo', cursive;
+
+    }
+    .remove-icon{
+      color:rgb(155, 91, 91);
+    }
