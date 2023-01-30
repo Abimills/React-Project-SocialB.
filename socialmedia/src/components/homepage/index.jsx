@@ -7,44 +7,20 @@ import AdUser from '../advertisement/adUser';
 import { useEffect } from 'react';
 import { useState } from 'react'
 import FriendsList from './userInfo/friends';
+import { useUsersContext } from '../../Context';
 
 const HomePage = () => {
-    const [user, setUser] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetcher = async () => {
-            try {
-                setLoading(true)
-                const res = await fetch('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca', {
-                    method: 'GET',
-                    headers: {
-                        'App-id': '63d5ace9058c286096e661e4',
-
-                    },
-                });
-                const data = await res.json();
-                setUser(data)
-                setLoading(false)
-
-            } catch (err) {
-                console.log(err);
-                setLoading(false)
-
-            }
-        }
-        fetcher();
-
-    }, [])
+    const { posts,user } = useUsersContext();
+    
    
   return (
     <>
-        <Navbar  name={user.firstName}/>
+        <Navbar  />
     <div className='home-container'>
         <UserInfo  user={user}/>
         <div className="poster-container">
         <UserTopInfo  user={user}/>
-        <Post  />
+        <Post posts={posts} />
 
         </div>
         <div className='friends-ad-container'>

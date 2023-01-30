@@ -3,7 +3,17 @@ import { BsCardImage } from 'react-icons/bs'
 import { CiMedicalClipboard } from 'react-icons/ci'
 import { IoAttachOutline } from 'react-icons/io5'
 import { AiFillAudio } from 'react-icons/ai'
+import { useUsersContext } from '../../../Context'
 const UserTopInfo = ({user}) => {
+
+  if(!user){
+    return(
+      <div>
+        <h1>Loading</h1>
+      </div>
+    )
+  }
+  
   return (
     <div className='top-container'>
       <div className="image-search-container">

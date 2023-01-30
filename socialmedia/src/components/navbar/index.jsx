@@ -5,8 +5,10 @@ import { MdLightMode } from 'react-icons/md'
 import { AiFillMessage } from 'react-icons/ai'
 import { AiFillBell } from 'react-icons/ai'
 import { IoMdHelpCircle } from 'react-icons/io'
+import { useUsersContext } from '../../Context'
 
 const Navbar = ({name}) => {
+  const { user } = useUsersContext();
   return (
     <div className='container'>
       <div className="logo-container">
@@ -37,7 +39,7 @@ const Navbar = ({name}) => {
           </div>
           <div className="login-logout-container">
            <select name="login" className='drop-down-container'>
-            <option value="pic" className='name'> {name}
+            <option value="pic" className='name'> {user.firstName}
             </option>
             <option> Log Out</option>
 

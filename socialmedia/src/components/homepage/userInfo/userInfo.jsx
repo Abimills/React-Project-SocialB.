@@ -5,11 +5,18 @@ import { CiLocationOn } from 'react-icons/ci'
 import { MdWorkOutline } from 'react-icons/md'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import { AiFillLinkedin } from 'react-icons/ai'
-const getUsersById = 'https://dummyapi.io/data/v1/user/:id';
-const UserInfo = ({user}) => {
+import { useUsersContext } from '../../../Context'
 
-  
-  const fullName = `${user.firstName ||'' } ${user.lastName|| ''}`
+
+const UserInfo = ({user}) => {
+ 
+  if(!user){
+    return(
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    )
+  }
   return (
     <div className='user-info-container'>
       <div className="image-name-container">
@@ -18,7 +25,7 @@ const UserInfo = ({user}) => {
         <img src={user.picture} alt={user.firstName} />
         </div>
         <div className="friends-name-container">
-        <h3>{fullName } </h3>
+          <h3>{`${user.firstName} ${user.lastName}`} </h3>
         <p>2 friends</p>
 
         </div>

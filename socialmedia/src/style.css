@@ -515,3 +515,23 @@ background-color: rgb(3, 28, 22);
     .remove-icon{
       color:rgb(155, 91, 91);
     }
+
+
+  @media screen and (max-width: 1000px){
+    .home-container{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .user-info-container{
+      width:60%;
+    }
+    .poster-container{
+      width:70%
+    }
+    .top-container{
+      width: 99%;
+      margin: 0;
+    }
+  }

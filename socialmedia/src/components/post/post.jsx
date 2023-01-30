@@ -2,35 +2,11 @@ import React,{useState,useEffect} from 'react'
 import { IoIosPersonAdd } from 'react-icons/io'
 import { AiFillLike } from 'react-icons/ai'
 import { BiComment } from 'react-icons/bi'
-const Post = () => {
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        const fetcher = async () => {
-            try {
-                setLoading(true)
-                const res = await fetch('https://dummyapi.io/data/v1/post', {
-                    method: 'GET',
-                    headers: {
-                        'App-id': '63d5ace9058c286096e661e4',
+import { Link } from 'react-router-dom'
 
-                    },
-                });
-                const data = await res.json();
-                setPosts(data.data)
-                setLoading(false)
-
-            } catch (err) {
-                console.log(err);
-                setLoading(false)
-
-            }
-        }
-        fetcher();
-
-    }, [])
-    console.log(posts);
-    if(loading){
+const Post = ({posts}) => {
+    
+    if(!posts){
         return (
             <div>
                 Loading...
@@ -45,8 +21,9 @@ const Post = () => {
         <>
         {
             posts && posts.map(post => {
-        const {id,image,likes,owner:{firstName,lastName, picture,},text} = post;
-           return <div className='post-container' key={id}>
+        const {image,likes,owner:{id,firstName,lastName, picture,},text} = post;
+           return <div className='post-container' key={post.id}>
+            <Link to={`/user/${id}/post`}>
         <div className="image-add-container">
             <div>
             <img src={picture} alt={firstName}/>
@@ -56,6 +33,7 @@ const Post = () => {
             <IoIosPersonAdd className='add-me'/>
 
         </div>
+            </Link>
         <div className="picture-post-name-container">
             <p>{text}</p>
             <img src={image}alt={text} />
