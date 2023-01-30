@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsCardImage } from 'react-icons/bs'
-import { CiMedicalClipboard } from 'react-icons/ci'
+import { BsClipboardCheck } from 'react-icons/bs'
 import { IoAttachOutline } from 'react-icons/io5'
 import { AiFillAudio } from 'react-icons/ai'
 import { useUsersContext } from '../../../Context'
@@ -33,7 +33,7 @@ const UserTopInfo = ({user}) => {
           <p>Image</p>
         </div>
         <div className="clip-attachment toper">
-          <CiMedicalClipboard className='attach-icons'/>
+          <BsClipboardCheck className='attach-icons'/>
           <p>Clip</p>
 
         </div>

@@ -1,5 +1,5 @@
 import { useContext ,useEffect,useState} from "react";
-import { Children, createContext } from "react";
+import { createContext } from "react";
 
 
 const AppContext  = createContext();
@@ -9,6 +9,7 @@ const AppProvider = ({children}) => {
 
     const [user, setUser] = useState([]);
     const [data, setData] = useState([]);
+    const [darkMode,setDarkMode] = useState(false);
     const [loading, setLoading] = useState(true);
     let posts = [];
 
@@ -46,23 +47,9 @@ const AppProvider = ({children}) => {
         posts = data.data
     }
     
-    
-
-                
-
-            
-               
-
-            
-       
-      
-       
-
-
-
 
     return(
-        <AppContext.Provider value={{user,useFetch,posts}}>
+        <AppContext.Provider value={{user,useFetch,posts,darkMode,setDarkMode}}>
             {children}
 
         </AppContext.Provider>

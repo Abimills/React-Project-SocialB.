@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { IoPersonAdd } from 'react-icons/io5'
-import { CiLocationOn } from 'react-icons/ci'
+import { IoLocationOutline } from 'react-icons/io5'
 import { MdWorkOutline } from 'react-icons/md'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import { AiFillLinkedin } from 'react-icons/ai'
@@ -34,7 +34,7 @@ const UserInfo = ({user}) => {
         <hr className='horizontal-line'/>
       <div className="location-container">
         <div className="location-profile">
-          <CiLocationOn className='profile-icon' />
+          <IoLocationOutline className='profile-icon' />
           <p>london</p>
         </div>
         <div className="location-profile">

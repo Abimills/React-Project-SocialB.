@@ -12,7 +12,7 @@ import FriendsList from '../homepage/userInfo/friends';
 
 const SingleUser = () => {
     const {id} = useParams();
-    const {useFetch} = useUsersContext();
+    const {useFetch,darkMode} = useUsersContext();
     const [onePersonPosts,setOnePersonPosts] =useState([]);
     const [user,setUser] =useState([]);
     const [loading,setLoading] =useState(true);
@@ -26,7 +26,7 @@ const SingleUser = () => {
     
 
   return (
-    <>
+    <div id={darkMode ? '' : 'light'}>
        <Navbar  />
     <div className='home-container'>
         <UserInfo  user={user}/>
@@ -41,7 +41,7 @@ const SingleUser = () => {
          <FriendsList  />
         </div>
     </div>
-    </>
+    </div>
   )
 }
 
