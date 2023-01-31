@@ -11,47 +11,42 @@ const AppProvider = ({children}) => {
     const [data, setData] = useState([]);
     const [darkMode,setDarkMode] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [myId,setMyId] = useState('');
     let posts = [];
-
 
      const useFetch =  (url,setData) => {
         useEffect(() => {
-       
             fetch(url, {
                 method: 'GET',
                 headers: {
-                    'App-id': '63d5ace9058c286096e661e4',
-                    
+                    'App-id': '63d5ace9058c286096e661e4', 
                 },
             })
             .then((data) =>{
-                    
                    return  data.json()
-
                 })
                 .then((data) => {
                     setData(data)
                     setLoading(false)
-                    
                 })
                 .catch((err) => {
                     console.log(err);
                     setLoading(false)
                 })
-        }, [])
+        }, [myId])
     }
-    useFetch('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca',setUser)
+    
     useFetch('https://dummyapi.io/data/v1/post',setData)
+    useFetch(`https://dummyapi.io/data/v1/user/${myId ? myId :'63d849f4e1ead0fc9e80191d' }`,setUser)
+
     if(data){
-        
         posts = data.data
     }
     
 
     return(
-        <AppContext.Provider value={{user,useFetch,posts,darkMode,setDarkMode}}>
+        <AppContext.Provider value={{user,useFetch,posts,darkMode,setDarkMode,myId,setMyId}}>
             {children}
-
         </AppContext.Provider>
     )
 

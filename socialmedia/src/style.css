@@ -20,6 +20,7 @@ body {
   align-items: center;
   background-color: #263f3f;
   padding: 10px;
+  cursor: pointer;
 }
 
 .logo-container {
@@ -113,9 +114,10 @@ body {
 
 .icons {
   background-color: white;
-  margin: 1px;
+  margin: 5px;
   border-radius: 50%;
   padding: 1px;
+  font-size: 1.5rem;
 }
 
 .drop-down-container {
@@ -646,12 +648,17 @@ color:black;
 #light .pic-names-container h5{
   color:black;
 }
+.log-out-icon{
+  font-size: 1.5rem;
+  color:rgb(168, 2, 2);
+  background-color: #2fdfdf;
+}
 .pic-names-container h5 {
   color: white;
   margin-left: 3px;
   font-size: 0.7rem;
   font-family: 'Solitreo', cursive;
-
+  
 }
 
 
@@ -661,6 +668,65 @@ color:black;
 }
 #light{
   background-color: white;
+}
+.login-containers{
+  width:100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  
+  
+}
+.former-container{
+  /* background-color: #1a2f2f; */
+  width:50%;
+  height: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Solitreo', cursive;
+  
+  
+}
+.form-container p{
+  color:white;
+}
+.login-header{
+  color:rgb(248, 253, 255);
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+.submit-to-login-btn{
+  font-family: 'Solitreo', cursive;
+  display: block;
+  width:100px;
+  background-color:rgb(116, 4, 4) ;
+  color:white;
+  border:none;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 1rem;
+  margin-left: 5.4rem;
+  
+}
+.email-name{
+  font-family: 'Solitreo', cursive;
+  padding: 10px;
+  border-radius: 20px;
+  border:none;
+  outline:none;
+  margin-left: 0.6rem;
+  width:250px;
+  
+  background-color: #f9fcfc;
 }
 
 
@@ -722,9 +788,17 @@ color:black;
   .help-btn-container {
     display: flex;
     flex-direction: column;
-    width: 15%;
-    height: 15%;
+    width: 20%;
+    height: 20%;
     margin-right: 1rem;
+  }
+  .friends-name-container h3{
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+  .friends-name-container p{
+    
+    margin-left: 10px;
   }
 
   .icons {
@@ -772,5 +846,16 @@ color:black;
     font-size: 1.4rem;
     z-index: 999;
     cursor:pointer;
+  }
+}
+@media screen  and (max-width:400px){
+  .top-container{
+    width:100%;
+  }
+  .attachment-top p{
+    display: none;;
+  }
+  .friends-name-container h3,p{
+   display: none;
   }
 }

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+
 import { IoIosPersonAdd } from 'react-icons/io'
 import { AiFillLike } from 'react-icons/ai'
 import { BiComment } from 'react-icons/bi'
@@ -15,8 +15,6 @@ const Post = ({posts}) => {
 
     }
    
-
-    
     return (
         <>
         {
@@ -29,15 +27,12 @@ const Post = ({posts}) => {
             <img src={picture} alt={firstName}/>
             <h3>{`${firstName }${lastName}`}</h3>
             </div>
-            
             <IoIosPersonAdd className='add-me'/>
-
         </div>
             </Link>
         <div className="picture-post-name-container">
             <p>{text}</p>
             <img src={image}alt={text} />
-
         </div>
         <div className="like-comment-container">
             <div className="likes">
@@ -56,11 +51,9 @@ const Post = ({posts}) => {
 }
         </>
 
-)
-
-}
+)}
 
 
 
 
-export default Post
+export default Post;

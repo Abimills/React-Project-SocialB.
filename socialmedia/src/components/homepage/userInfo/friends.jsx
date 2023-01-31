@@ -1,50 +1,29 @@
 import React from 'react'
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { IoPersonRemove } from 'react-icons/io5'
+import { useUsersContext } from '../../../Context';
 
 const FriendsList = () => {
+    const {useFetch} = useUsersContext();
 
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
+    useFetch('https://dummyapi.io/data/v1/user',setUsers)
 
-    useEffect(() => {
-        const fetcher = async () => {
-            try {
-                setLoading(true)
-                const res = await fetch('https://dummyapi.io/data/v1/user', {
-                    method: 'GET',
-                    headers: {
-                        'App-id': '63d5ace9058c286096e661e4',
-
-                    },
-                });
-                const data = await res.json();
-                setUsers(data.data)
-                setLoading(false)
-
-            } catch (err) {
-                console.log(err);
-                setLoading(false)
-
-            }
-        }
-        fetcher();
-
-    }, [])
+    
     let newUser =[];
-    if(users) {
-        newUser= users.filter((data,index) => index  >= 4 && index <= 7)
+    if(!users.data){
+        return(
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
+    if(users.data) {
+        newUser= users.data.filter((data,index) => index  >= 4 && index <= 7)
        
     }
-    console.log(newUser);
-   
 
-   
-
-
-
-    
-    
   return (
 
     <div className='friend-containers'>

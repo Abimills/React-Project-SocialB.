@@ -1,14 +1,12 @@
-import React from 'react'
-
 import { IoPersonAdd } from 'react-icons/io5'
 import { IoLocationOutline } from 'react-icons/io5'
 import { MdWorkOutline } from 'react-icons/md'
 import { AiOutlineTwitter } from 'react-icons/ai'
-import { AiFillLinkedin } from 'react-icons/ai'
-import { useUsersContext } from '../../../Context'
+
 
 
 const UserInfo = ({user}) => {
+  const jobs= ['Developer','Doctor','Bartender','Nurse','Accountant','Manager','Carpenter','Teacher','Model','Cyclist','Vet','Pilot','HR']
  
   if(!user){
     return(
@@ -35,19 +33,19 @@ const UserInfo = ({user}) => {
       <div className="location-container">
         <div className="location-profile">
           <IoLocationOutline className='profile-icon' />
-          <p>london</p>
+          <p>{'London' }</p>
         </div>
         <div className="location-profile">
           <MdWorkOutline className='profile-icon' />
-          <p>developer</p>
+          <p>{jobs[Math.floor(Math.random()*12)]}</p>
         </div>
 
       </div>
       <hr className='horizontal-line' />
       <div className="impressions-container">
         
-        <p className='watched'>who watched your profile : <span>{1034} </span></p>
-        <p className='impressions'>impressions on your profile : <span>{334} </span></p>
+        <p className='watched'>who watched your profile : <span>{Math.floor(Math.random()*500)} </span></p>
+        <p className='impressions'>impressions on your profile : <span>{Math.floor(Math.random()*300)} </span></p>
 
 
       </div>
@@ -59,16 +57,10 @@ const UserInfo = ({user}) => {
           <div>
 
           <h4>twitter</h4>
-          <p>sara@twitter.com</p>
+          <p>{`${user.firstName}@twitter.com`}</p>
           </div>
         </div>
-        {/* <div className="linkedin">
-          < AiFillLinkedin  className='tweet'/>
-          <div>
-          <h4>Linkedin</h4>
-          <p>sara@likedin.com</p>
-          </div>
-        </div> */}
+        
 
       </div>
 

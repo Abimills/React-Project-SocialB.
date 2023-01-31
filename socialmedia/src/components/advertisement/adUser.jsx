@@ -1,19 +1,8 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
 import advertise from '../../advertisement'
 
 
 const AdUser = () => {
-   
-    let num = 0;
-    const random = () => {
-        return Math.floor(Math.random() * 6);
-    }
-    num = random();
-
-    const ad = advertise[num];
-    
+    const ad = advertise[Math.floor(Math.random() * 6)];
     
   return (
     <div className='ad-user-container'>

@@ -3,7 +3,6 @@ import { BsCardImage } from 'react-icons/bs'
 import { BsClipboardCheck } from 'react-icons/bs'
 import { IoAttachOutline } from 'react-icons/io5'
 import { AiFillAudio } from 'react-icons/ai'
-import { useUsersContext } from '../../../Context'
 const UserTopInfo = ({user}) => {
 
   if(!user){
@@ -22,8 +21,6 @@ const UserTopInfo = ({user}) => {
           <input type="text" placeholder=' What is on your mind' />
 
         </div>
-        
-
       </div>
       <hr  className='horizontal-line'/>
       <div className="attachment-container">
@@ -35,24 +32,19 @@ const UserTopInfo = ({user}) => {
         <div className="clip-attachment toper">
           <BsClipboardCheck className='attach-icons'/>
           <p>Clip</p>
-
         </div>
         <div className="attached-attachment toper">
           <IoAttachOutline className='attach-icons'/>
           <p>Attachment</p>
-
         </div>
         <div className="audio-attachment toper">
           <AiFillAudio className='attach-icons'/>
           <p>Audio</p>
-
-          
         </div>
         </div>
         <button className='post'>
           Post
         </button>
-
       </div>
     </div>
   )

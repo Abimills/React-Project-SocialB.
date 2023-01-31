@@ -6,11 +6,11 @@ import Post from '../post/post';
 import AdUser from '../advertisement/adUser';
 import FriendsList from './userInfo/friends';
 import { useUsersContext } from '../../Context';
+import { useState,useEffect } from 'react';
 
 const HomePage = () => {
-    const { posts,user,darkMode,setDarkMode } = useUsersContext();
-    
-   
+  const { user,posts,darkMode,setDarkMode } = useUsersContext();
+
   return (
     <div id={darkMode ? '' : 'light'}>
         <Navbar  />
@@ -19,10 +19,8 @@ const HomePage = () => {
         <div className="poster-container">
         <UserTopInfo  user={user}/>
         <Post posts={posts} />
-
         </div>
         <div className='friends-ad-container'>
-
          <AdUser />
          <FriendsList  />
         </div>
