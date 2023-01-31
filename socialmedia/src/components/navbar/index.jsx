@@ -21,7 +21,9 @@ const Navbar = () => {
   return (
     <div className='container'>
       <div className="logo-container" >
+        <Link to={'/'}>
         <img src="https://thumbs.dreamstime.com/b/ab-logo-concept-isolated-white-background-modern-design-style-web-site-mobile-app-ab-logo-concept-isolated-white-169703318.jpg" alt="ab logo"  className='ab-logo'/>
+        </Link>
         <h2>SocialB.</h2>
       </div>
       <div className="search-bar-container">

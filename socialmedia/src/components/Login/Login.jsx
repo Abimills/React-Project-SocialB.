@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { useUsersContext } from '../../Context'
 
 const Login = () => {
-      const {myId,useFetch,setUser,setMyId} = useUsersContext();
+      const {useFetch,setMyId} = useUsersContext();
       const [name, setName] = useState('');
-      const [password, setPassword] = useState('');
       const[allUsers,setAllUsers]=useState([]);
       useFetch(`https://dummyapi.io/data/v1/user?page=1&limit=100&=`,setAllUsers)
 
@@ -40,7 +39,6 @@ const Login = () => {
       </form>
       <p>Register here</p>
       </div>
-
     </div>
   )
 }

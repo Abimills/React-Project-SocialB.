@@ -43,7 +43,6 @@ const AppProvider = ({children}) => {
         posts = data.data
     }
     
-
     return(
         <AppContext.Provider value={{user,useFetch,posts,darkMode,setDarkMode,myId,setMyId}}>
             {children}

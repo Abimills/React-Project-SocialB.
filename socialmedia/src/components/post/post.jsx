@@ -21,7 +21,7 @@ const Post = ({posts}) => {
             posts && posts.map(post => {
         const {image,likes,owner:{id,firstName,lastName, picture,},text} = post;
            return <div className='post-container' key={post.id}>
-            <Link to={`/user/${id}/post`}>
+            <Link to={`/user/${id}/post`} >
         <div className="image-add-container">
             <div>
             <img src={picture} alt={firstName}/>

@@ -16,7 +16,7 @@ const SingleUser = () => {
     const [onePersonPosts,setOnePersonPosts] =useState([]);
     const [user,setUser] =useState([]);
     const [loading,setLoading] =useState(true);
-    
+
     useFetch(`https://dummyapi.io/data/v1/user/${id}/post`,setOnePersonPosts);
     useFetch(`https://dummyapi.io/data/v1/user/${id}`,setUser);
    
@@ -28,10 +28,8 @@ const SingleUser = () => {
         <div className="poster-container">
         <UserTopInfo  user={user}/>
         <Post posts={onePersonPosts.data} />
-
         </div>
         <div className='friends-ad-container'>
-
          <AdUser />
          <FriendsList  />
         </div>

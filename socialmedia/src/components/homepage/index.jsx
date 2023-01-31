@@ -6,10 +6,10 @@ import Post from '../post/post';
 import AdUser from '../advertisement/adUser';
 import FriendsList from './userInfo/friends';
 import { useUsersContext } from '../../Context';
-import { useState,useEffect } from 'react';
+
 
 const HomePage = () => {
-  const { user,posts,darkMode,setDarkMode } = useUsersContext();
+  const { user,posts,darkMode } = useUsersContext();
 
   return (
     <div id={darkMode ? '' : 'light'}>
