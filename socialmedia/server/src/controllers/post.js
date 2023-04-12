@@ -57,6 +57,24 @@ export const createPost = async (req, res) => {
       .json({ success: false, message: "Something went wrong", error });
   }
 };
+// create post
+export const addLike = async (req, res) => {
+  const {_id, userId} = req.body;
+  // validate req.body if i have time
+  try {
+    const newPost = await Post.create(postData);
+
+    res.status(200).json({
+      success: true,
+      message: "Successfully created",
+      post: newPost,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, message: "Something went wrong", error });
+  }
+};
 // delete post
 export const deletePost = async (req, res) => {
   const { id } = req.params;

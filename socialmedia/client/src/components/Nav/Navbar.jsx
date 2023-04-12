@@ -8,14 +8,20 @@ import { RiLogoutCircleLine } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useUsersContext } from "../../Context";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import "./nav.css";
 
 const Navbar = () => {
-  const { user, setDarkMode, darkMode } = useUsersContext();
+  const { user, setDarkMode, darkMode, dispatch } = useUsersContext();
   const [showBar, setShowBar] = useState(false);
+  const navigate = useNavigate();
 
   const handleShowBar = () => {
     setShowBar((prev) => !prev);
+  };
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login", window.scrollTo(0, 0));
   };
 
   return (
@@ -37,9 +43,12 @@ const Navbar = () => {
             placeholder=" Search..."
             className="search-navbar-input"
           />
-          <button className="search-btn">
-            <BiSearch />
-          </button>
+
+          {user && (
+            <button className="search-btn">
+              <BiSearch />
+            </button>
+          )}
         </div>
         <GiHamburgerMenu className="hamburger" onClick={handleShowBar} />
         <div
@@ -61,18 +70,31 @@ const Navbar = () => {
               onClick={() => setDarkMode(false)}
             />
           </div>
-          <div className="help-btn-container">
-            <AiFillMessage className="icons" />
-            <AiFillBell className="icons" />
-            <Link to={"/login"}>
-              <RiLogoutCircleLine className="icons log-out-icon" />
-            </Link>
-          </div>
+
+          {user ? (
+            <div className="help-btn-container">
+              <AiFillMessage className="icons" />
+              <AiFillBell className="icons" />
+
+              <RiLogoutCircleLine
+                className="icons log-out-icon"
+                onClick={handleLogout}
+              />
+            </div>
+          ) : (
+            <div className="help-btn-container">
+              <Link to={"/login"}>
+                <button className="nav-login-btn">Login</button>
+              </Link>
+              <Link to={"/register"}>
+                <button className="nav-login-btn">Register</button>
+              </Link>
+            </div>
+          )}
           {user && (
             <div className="login-logout-container">
               <select name="login" className="drop-down-container">
                 <option value="pic" className="name">
-                 
                   {user.firstName}
                 </option>
               </select>

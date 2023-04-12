@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useUsersContext } from "../../Context";
 import useFetch from "../../hooks/useFetch";
+import Navbar from "../../components/Nav/Navbar";
 
 const Login = () => {
   const { dispatch } = useUsersContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   // const [allUsers, setAllUsers] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -29,6 +31,7 @@ const Login = () => {
         console.log(data);
         if (data) {
           dispatch({ type: "LOGIN_SUCCESSFUL", payload: data.user });
+          navigate("/me", window.scrollTo(0, 0));
         } else {
           dispatch({ type: "LOGIN_FAILURE", payload: data.error });
         }
@@ -40,6 +43,8 @@ const Login = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="login-containers">
       <h1 style={{ color: "white" }}> Welcome to SocialB.</h1>
       <div className="former-container">
@@ -68,6 +73,7 @@ const Login = () => {
         <p>Register here</p>
       </div>
     </div>
+    </>
   );
 };
 

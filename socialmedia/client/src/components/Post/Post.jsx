@@ -2,9 +2,14 @@ import { IoIosPersonAdd } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useUsersContext } from "../../Context";
 
 const Post = ({ posts }) => {
+const {user} = useUsersContext();
+const handleLike = (_id) => {
+  
 
+}
   return (
     <>
       {posts?.posts?.map((post) => {

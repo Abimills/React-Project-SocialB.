@@ -8,32 +8,21 @@ import FriendsList from "./userInfo/friends";
 import { useUsersContext } from "../../Context";
 import useFetch from "../../hooks/useFetch";
 
+import "./home.css";
+import HomeHeader from "../../components/HomeHeader/HomeHeader";
+import HomeMiddle from "../../components/HomeMiddle.jsx/HomeMiddle";
+import HomeLower from "../../HomeLower/HomeLower";
+import Footer from "../../components/FooterBar/FooterBar";
 const HomePage = () => {
-  const { user, posts, darkMode } = useUsersContext();
-  const [allPosts, setAllPosts] = useState([]);
-  const { data, error, loading } = useFetch(
-    `http://localhost:8080/api/v1/post`
-  );
-  useEffect(() => {
-    if (data) {
-      setAllPosts(data);
-    }
-  }, [data]);
-  console.log("hey there")
+  const { darkMode } = useUsersContext();
+
   return (
     <div id={darkMode ? "" : "light"}>
       <Navbar />
-      <div className="home-container">
-        <UserInfo user={user} />
-        <div className="poster-container">
-          <UserTopInfo user={user} />
-          <Post posts={allPosts} />
-        </div>
-        <div className="friends-ad-container">
-          <AdUser />
-          {/* <FriendsList /> */}
-        </div>
-      </div>
+      <HomeHeader />
+      <HomeMiddle />
+      <HomeLower />
+      <Footer />
     </div>
   );
 };

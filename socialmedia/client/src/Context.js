@@ -48,7 +48,7 @@ const UserReducer = (state, action) => {
 };
 
 const AppProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [state, dispatch] = useReducer(UserReducer, INITIAL_STATE);
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));

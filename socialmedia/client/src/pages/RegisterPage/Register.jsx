@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useUsersContext } from "../../Context";
 import useFetch from "../../hooks/useFetch";
 import "./register.css";
+import Navbar from "../../components/Nav/Navbar";
 
 const Register = () => {
   const { dispatch } = useUsersContext();
@@ -10,6 +11,7 @@ const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [job, setJob] = useState("");
+  const [photo, setPhoto] = useState("");
   const [placeOfResidence, setPlaceOfResidence] = useState("");
   const [twitterAccount, setTwitterAccount] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +29,8 @@ const Register = () => {
         job &&
         placeOfResidence &&
         twitterAccount &&
-        passwordAgain
+        passwordAgain &&
+        photo
       ) {
         dispatch({ type: "LOGIN_START" });
         const res = await fetch(`http://localhost:8080/api/v1/auth/register/`, {
@@ -42,6 +45,7 @@ const Register = () => {
             job: job,
             placeOfResidence: placeOfResidence,
             twitterAccount: twitterAccount,
+            photo: photo,
             password: password,
           }),
         });
@@ -58,6 +62,8 @@ const Register = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="login-containers">
       <h1 style={{ color: "white" }}> Welcome to SocialB.</h1>
       <div className="register-former-container">
@@ -70,7 +76,7 @@ const Register = () => {
             value={firstName}
             className="register-email-name"
             onChange={(e) => setFirstName(e.target.value)}
-          />
+            />
           <input
             type="text"
             placeholder="Last Name"
@@ -94,11 +100,18 @@ const Register = () => {
           />
           <input
             type="text"
+            placeholder="Profile picture"
+            value={photo}
+            className="register-email-name"
+            onChange={(e) => setPhoto(e.target.value)}
+            />
+          <input
+            type="text"
             placeholder="Place Of Residence"
             value={placeOfResidence}
             className="register-email-name"
             onChange={(e) => setPlaceOfResidence(e.target.value)}
-          />
+            />
           <input
             type="text"
             placeholder="Twitter Account"
@@ -119,7 +132,7 @@ const Register = () => {
             value={passwordAgain}
             className="register-email-name"
             onChange={(e) => setPasswordAgain(e.target.value)}
-          />
+            />
 
           <button type="submit" className="register-btn">
             Register
@@ -128,6 +141,7 @@ const Register = () => {
         <p>Login here</p>
       </div>
     </div>
+            </>
   );
 };
 
