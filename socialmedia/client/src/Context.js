@@ -1,31 +1,68 @@
-import { useContext, useEffect, useState } from "react";
-import { createContext } from "react";
+import {
+  useContext,
+  useReducer,
+  useState,
+  createContext,
+  useEffect,
+} from "react";
 
-const AppContext = createContext();
+const INITIAL_STATE = {
+  user: !localStorage.getItem("user")
+    ? null
+    : JSON.parse(localStorage.getItem("user")),
+  loading: false,
+  error: null,
+};
+const AppContext = createContext(INITIAL_STATE);
+
+const UserReducer = (state, action) => {
+  switch (action.type) {
+    case "LOGIN_START":
+      return {
+        user: null,
+        loading: true,
+        error: null,
+      };
+    case "LOGIN_SUCCESSFUL":
+      return {
+        user: action.payload,
+        loading: false,
+        error: null,
+      };
+    case "LOGIN_FAILURE":
+      return {
+        user: null,
+        loading: false,
+        error: action.payload,
+      };
+    case "LOGOUT":
+      return {
+        user: null,
+        loading: false,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};
 
 const AppProvider = ({ children }) => {
-  const [user, setUser] = useState([]);
-  const [data, setData] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [myId, setMyId] = useState("");
-  let posts = [];
-
-  useFetch("https://dummyapi.io/data/v1/post", setData);
-  useFetch(
-    `https://dummyapi.io/data/v1/user/${
-      myId ? myId : "63d849f4e1ead0fc9e80191d"
-    }`,
-    setUser
-  );
-
-  if (data) {
-    posts = data.data;
-  }
-
+  const [state, dispatch] = useReducer(UserReducer, INITIAL_STATE);
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(state.user));
+  }, [state.user]);
   return (
     <AppContext.Provider
-      value={{ user, useFetch, posts, darkMode, setDarkMode, myId, setMyId }}
+      value={{
+        user: state.user,
+        loading: state.loading,
+        error: state.error,
+        dispatch,
+        darkMode,
+        setDarkMode,
+      }}
     >
       {children}
     </AppContext.Provider>

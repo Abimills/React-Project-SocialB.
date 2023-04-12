@@ -16,7 +16,7 @@ const SingleUser = () => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useFetch(`https://dummyapi.io/data/v1/user/${id}/post`, setOnePersonPosts);
+  // useFetch(`https://dummyapi.io/data/v1/user/${id}/post`, setOnePersonPosts);
   useFetch(`https://dummyapi.io/data/v1/user/${id}`, setUser);
 
   return (

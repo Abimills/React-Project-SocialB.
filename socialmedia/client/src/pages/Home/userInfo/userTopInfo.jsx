@@ -5,18 +5,12 @@ import { IoAttachOutline } from 'react-icons/io5'
 import { AiFillAudio } from 'react-icons/ai'
 const UserTopInfo = ({user}) => {
 
-  if(!user){
-    return(
-      <div>
-        <h1>Loading</h1>
-      </div>
-    )
-  }
+  
   
   return (
     <div className='top-container'>
       <div className="image-search-container">
-        <img src={user.picture} alt={user.firstName} className='person-top' />
+        <img src={user.photo} alt={user.firstName} className='person-top' />
         <div className="search search-top">
           <input type="text" placeholder=' What is on your mind' />
 

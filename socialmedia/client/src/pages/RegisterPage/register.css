@@ -1,0 +1,36 @@
+
+
+.register-former-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color:white;
+}
+.register-former-container h1{
+      color:white;
+}
+.register-former-container form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+}
+.register-email-name{
+     width:340px;
+     height:40px;
+     margin: 0.5rem;
+     text-indent: 5px;
+     outline: none;
+}
+.register-btn{
+  padding:10px 20px; 
+  border-radius: 20px;  
+  color:white;
+  background-color: rgb(122, 24, 24); 
+  /* border: none; */
+  outline:none;
+
+    
+
+}

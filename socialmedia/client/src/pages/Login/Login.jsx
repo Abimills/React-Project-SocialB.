@@ -1,29 +1,43 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useUsersContext } from "../../Context";
+import useFetch from "../../hooks/useFetch";
 
 const Login = () => {
-  const { useFetch, setMyId } = useUsersContext();
-  const [name, setName] = useState("");
-  const [allUsers, setAllUsers] = useState([]);
-  useFetch(`https://dummyapi.io/data/v1/user?page=1&limit=100&=`, setAllUsers);
+  const { dispatch } = useUsersContext();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const [allUsers, setAllUsers] = useState([]);
 
-  const handleSubmit = () => {
-    const isUserThere = allUsers.data.filter(
-      (user) => user.firstName.toLowerCase() === name.toLowerCase()
-    );
-    if (isUserThere) {
-      setMyId(isUserThere[0].id);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (email && password) {
+        dispatch({ type: "LOGIN_START" });
+        const res = await fetch(`http://localhost:8080/api/v1/auth/login/`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        });
+        const data = await res.json();
+
+        console.log(data);
+        if (data) {
+          dispatch({ type: "LOGIN_SUCCESSFUL", payload: data.user });
+        } else {
+          dispatch({ type: "LOGIN_FAILURE", payload: data.error });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch({ type: "LOGIN_FAILURE", payload: error });
     }
   };
-
-  if (!allUsers) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
 
   return (
     <div className="login-containers">
@@ -31,23 +45,25 @@ const Login = () => {
       <div className="former-container">
         <h1 className="login-header"> Login</h1>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Email"
-            value={name}
+            value={email}
             className="email-name"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <Link to={"/"}>
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="submit-to-login-btn"
-            >
-              Log In
-            </button>
-          </Link>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            className="email-name"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button type="submit" className="submit-to-login-btn">
+            Log In
+          </button>
         </form>
         <p>Register here</p>
       </div>
