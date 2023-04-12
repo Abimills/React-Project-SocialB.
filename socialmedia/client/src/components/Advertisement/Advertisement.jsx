@@ -1,6 +1,6 @@
 import advertise from '../../utils/advertisement'
 
-
+console.log("hiii")
 const AdUser = () => {
     const ad = advertise[Math.floor(Math.random() * 6)];
     
