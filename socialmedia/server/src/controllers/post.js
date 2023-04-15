@@ -19,6 +19,27 @@ export const getPosts = async (req, res) => {
       .json({ success: false, message: "Something went wrong", error });
   }
 };
+// get all posts
+export const getPersonPosts = async (req, res) => {
+  const { id } = req.params;
+  try {
+    
+    const posts = await Post.find({ userId: id });
+    if (!posts) {
+      res.status(404).json({ success: false, message: "Posts not found" });
+    }
+    res.status(200).json({
+      success: true,
+      counts: posts.length,
+      message: "Successfully fetched related posts",
+      posts: posts,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, message: "Something went wrong", error });
+  }
+};
 // get single post
 export const getSinglePost = async (req, res) => {
   const { id } = req.params;
@@ -57,17 +78,52 @@ export const createPost = async (req, res) => {
       .json({ success: false, message: "Something went wrong", error });
   }
 };
-// create post
+// add a like functionality
 export const addLike = async (req, res) => {
-  const {_id, userId} = req.body;
-  // validate req.body if i have time
+  const { _id, userId } = req.body;
   try {
-    const newPost = await Post.create(postData);
+    const post = await Post.findById(_id);
+    if (!post) {
+      res.status(404).json({ success: false, message: "post not found" });
+    }
+    const found = post.likes.find((like) => like == userId);
+    if (!found) {
+      await Post.updateOne({ _id: _id }, { $push: { likes: userId } });
+      const newPost = await Post.findById(_id);
 
+      res.status(200).json({
+        success: true,
+        message: "added a like",
+        likes: newPost.likes,
+      });
+    } else {
+      await Post.updateOne({ _id: _id }, { $pull: { likes: userId } });
+      const newPost = await Post.findById(_id);
+      res.status(200).json({
+        success: true,
+        message: "removed a like",
+        likes: newPost.likes,
+      });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, message: "Something went wrong", error });
+  }
+};
+// Add comment
+export const addComment = async (req, res) => {
+  const { _id, userId, userName, userPhoto, comment } = req.body;
+  try {
+    await Post.updateOne(
+      { _id: _id },
+      { $push: { comments: { userId, userName, userPhoto, comment } } }
+    );
+    const newPost = await Post.findById(_id);
     res.status(200).json({
       success: true,
-      message: "Successfully created",
-      post: newPost,
+      message: "added a comments",
+      comments: newPost.comments,
     });
   } catch (error) {
     res

@@ -11,6 +11,15 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    userName: {
+      type: String,
+      required: true,
+    },
+    userPhoto: {
+      type: String,
+      required: true,
+    },
+
     title: {
       type: String,
       required: true,
@@ -20,7 +29,7 @@ const postSchema = new mongoose.Schema(
       default: [],
     },
     comments: {
-      type: [String],
+      type: [Object],
       default: [],
     },
    

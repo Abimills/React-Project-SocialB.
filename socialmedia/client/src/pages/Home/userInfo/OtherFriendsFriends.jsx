@@ -5,9 +5,7 @@ import { useUsersContext } from "../../../Context";
 import useFetch from "../../../hooks/useFetch";
 import { useEffect } from "react";
 
-const FriendsList = () => {
-  const { user } = useUsersContext();
-
+const OtherFriendsFriends = ({ user }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +15,7 @@ const FriendsList = () => {
       "content-type": "application/json",
     },
     body: JSON.stringify({
-      ids: user.friends,
+      ids: user?.friends,
     }),
   });
   useEffect(() => {
@@ -36,7 +34,7 @@ const FriendsList = () => {
           const { id, photo, firstName, lastName } = user;
 
           return (
-            <div className="individual-friend" key={user.id}>
+            <div className="individual-friend" key={id}>
               <div className="name-place">
                 <div className="pic-names-container">
                   <img src={photo} alt={firstName} />
@@ -52,4 +50,4 @@ const FriendsList = () => {
   );
 };
 
-export default FriendsList;
+export default OtherFriendsFriends;

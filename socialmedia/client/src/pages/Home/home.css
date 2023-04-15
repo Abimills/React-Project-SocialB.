@@ -182,3 +182,24 @@ a {
       margin:1rem;
       color:rgb(255, 119, 0);
 }
+.comment-area-container input{
+ 
+padding: 5px 10px;
+
+outline: none;
+}
+.comment-area-container button{
+      
+ background-color: aquamarine;
+ border:1px solid rgb(17, 75, 56);
+padding: 5px 10px;
+margin:  0 5px;
+
+}
+.user-name-personal-post{
+      color:black;
+      background-color: aquamarine;
+      border-radius: 20px;
+      text-align: center;
+      margin:10px 0;
+}

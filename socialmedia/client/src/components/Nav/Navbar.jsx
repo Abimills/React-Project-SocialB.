@@ -94,7 +94,11 @@ const Navbar = () => {
           {user && (
             <div className="login-logout-container">
               <select name="login" className="drop-down-container">
-                <option value="pic" className="name">
+                <option
+                  value="pic"
+                  className="name"
+                  onClick={handleLogout}
+                >
                   {user.firstName}
                 </option>
               </select>

@@ -25,6 +25,8 @@ const CreatePost = () => {
           },
           body: JSON.stringify({
             userId: user._id,
+            userName: user?.firstName,
+            userPhoto: user?.photo,
             title: title,
             photo: photo,
           }),
@@ -45,7 +47,7 @@ const CreatePost = () => {
     <>
       <Navbar />
       <div className="post-make-container">
-            <h1 className="let-people-know">Let people know What you been up to</h1>
+        <h1 className="let-people-know">Let people know What you been up to</h1>
         <form className="create-post-form" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -62,8 +64,7 @@ const CreatePost = () => {
             onChange={(e) => setPhoto(e.target.value)}
           />
           <div className="post-btn-container">
-          <button type="submit">Post</button>
-
+            <button type="submit">Post</button>
           </div>
         </form>
       </div>
